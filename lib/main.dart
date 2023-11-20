@@ -68,7 +68,9 @@ class MonthTaskState extends State<MonthTask> {
                   right: 20,
                 ),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _showAddTaskBottomSheet(context);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal,
                     fixedSize: const Size(
@@ -141,19 +143,19 @@ class MonthTaskState extends State<MonthTask> {
 
   Widget buildTimeRow() {
     List<String> times = [
-      '9 PM',
+      '9  PM',
       '10 PM',
       '11 PM',
       '12 AM',
-      '1 AM',
-      '2 AM',
-      '3 AM',
-      '4 AM',
-      '5 AM',
-      '6 AM',
-      '7 AM',
-      '8 AM',
-      '9 AM'
+      '1  AM',
+      '2  AM',
+      '3  AM',
+      '4  AM',
+      '5  AM',
+      '6  AM',
+      '7  AM',
+      '8  AM',
+      '9  AM'
     ];
 
     return SingleChildScrollView(
@@ -429,5 +431,45 @@ class MonthTaskState extends State<MonthTask> {
       default:
         return '';
     }
+  }
+
+  void _showAddTaskBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    'Add Task',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const TextField(
+                    decoration: InputDecoration(labelText: 'Task Name'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add logic to handle task creation
+                      Navigator.pop(context); // Close the bottom sheet
+                    },
+                    child: const Text('Create Task'),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 }
