@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.orange,
+    // statusBarBrightness: Brightness.light,
+  ));
   runApp(
     const MyApp(),
   );
@@ -368,7 +373,7 @@ class MonthTaskState extends State<MonthTask> {
           child: Padding(
             padding: const EdgeInsets.only(right: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   dayName,
@@ -437,11 +442,14 @@ class MonthTaskState extends State<MonthTask> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      builder: (BuildContext context) {
+      builder: (
+        BuildContext context,
+      ) {
         return SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
+              bottom: MediaQuery.of(context).viewInsets.bottom,
+            ),
             child: Container(
               padding: const EdgeInsets.all(16),
               child: Column(
