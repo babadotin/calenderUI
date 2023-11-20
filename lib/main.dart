@@ -459,8 +459,7 @@ class MonthTaskState extends State<MonthTask> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // Add logic to handle task creation
-                      Navigator.pop(context); // Close the bottom sheet
+                      Navigator.pop(context);
                     },
                     child: const Text('Create Task'),
                   ),
