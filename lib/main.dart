@@ -218,19 +218,32 @@ class MonthTaskState extends State<MonthTask> {
                   color: const Color.fromARGB(255, 247, 229, 207),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Your Text Here',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 25.0, left: 15.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Project Research',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        'Discuss with the colleagues\nabout the future plan',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 150, 139, 136),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(
@@ -262,6 +275,33 @@ class MonthTaskState extends State<MonthTask> {
                   color: const Color.fromARGB(255, 195, 227, 252),
                   borderRadius: BorderRadius.circular(30),
                 ),
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 25.0, left: 15.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Work on Medical App',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Add medicine tab',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 150, 139, 136),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ),
               const SizedBox(height: 30),
               Container(
@@ -275,6 +315,33 @@ class MonthTaskState extends State<MonthTask> {
                     215,
                   ),
                   borderRadius: BorderRadius.circular(30),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 25.0, left: 15.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Work on Medical App',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Text(
+                        'Add medicine tab',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 150, 139, 136),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
