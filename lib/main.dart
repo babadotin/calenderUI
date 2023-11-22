@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.orange,
-    // statusBarBrightness: Brightness.light,
-  ));
   runApp(
     const MyApp(),
   );
@@ -45,7 +41,6 @@ class MonthTaskState extends State<MonthTask> {
   List<DateTime> days = [];
   DateTime selectedDate = DateTime.now();
   Color textColor = Colors.black;
-
   @override
   void initState() {
     super.initState();
@@ -73,9 +68,7 @@ class MonthTaskState extends State<MonthTask> {
                   right: 20,
                 ),
                 child: ElevatedButton(
-                  onPressed: () {
-                    _showAddTaskBottomSheet(context);
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.teal,
                     fixedSize: const Size(
@@ -117,11 +110,11 @@ class MonthTaskState extends State<MonthTask> {
           const SizedBox(
             height: 25,
           ),
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'April, 2020',
-              style: TextStyle(
+              DateFormat('MMMM,y').format(selectedDate),
+              style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
@@ -148,19 +141,19 @@ class MonthTaskState extends State<MonthTask> {
 
   Widget buildTimeRow() {
     List<String> times = [
-      '9  PM',
+      '9 PM',
       '10 PM',
       '11 PM',
       '12 AM',
-      '1  AM',
-      '2  AM',
-      '3  AM',
-      '4  AM',
-      '5  AM',
-      '6  AM',
-      '7  AM',
-      '8  AM',
-      '9  AM'
+      '1 AM',
+      '2 AM',
+      '3 AM',
+      '4 AM',
+      '5 AM',
+      '6 AM',
+      '7 AM',
+      '8 AM',
+      '9 AM'
     ];
 
     return SingleChildScrollView(
@@ -190,7 +183,7 @@ class MonthTaskState extends State<MonthTask> {
             ),
           ),
           const SizedBox(
-            width: 30,
+            width: 30, //https://github.com/babadotin/Timeline.git
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,32 +218,19 @@ class MonthTaskState extends State<MonthTask> {
                   color: const Color.fromARGB(255, 247, 229, 207),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.only(top: 25.0, left: 15.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Project Research',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Your Text Here',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        'Discuss with the colleagues\nabout the future plan',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 150, 139, 136),
-                        ),
-                      )
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -282,33 +262,6 @@ class MonthTaskState extends State<MonthTask> {
                   color: const Color.fromARGB(255, 195, 227, 252),
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.only(top: 25.0, left: 15.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Work on Medical App',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        'Add medicine tab',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 150, 139, 136),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
               ),
               const SizedBox(height: 30),
               Container(
@@ -322,33 +275,6 @@ class MonthTaskState extends State<MonthTask> {
                     215,
                   ),
                   borderRadius: BorderRadius.circular(30),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.only(top: 25.0, left: 15.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Work on Medical App',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        'Add medicine tab',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 150, 139, 136),
-                        ),
-                      )
-                    ],
-                  ),
                 ),
               ),
             ],
@@ -373,7 +299,7 @@ class MonthTaskState extends State<MonthTask> {
           child: Padding(
             padding: const EdgeInsets.only(right: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   dayName,
@@ -436,47 +362,5 @@ class MonthTaskState extends State<MonthTask> {
       default:
         return '';
     }
-  }
-
-  void _showAddTaskBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      builder: (
-        BuildContext context,
-      ) {
-        return SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom,
-            ),
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Text(
-                    'Add Task',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const TextField(
-                    decoration: InputDecoration(labelText: 'Task Name'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Create Task'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
   }
 }
