@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'dart:io' show exit;
 
 void main() {
   runApp(
@@ -19,9 +20,14 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
-          title: const Icon(
-            Icons.arrow_back_ios_new_sharp,
-            color: Colors.black,
+          title: IconButton(
+            icon: const Icon(
+              Icons.favorite, //arrow_back_ios_new_sharp,
+              color: Colors.red,
+            ),
+            onPressed: () {
+              exit(0);
+            },
           ),
         ),
         body: const MonthTask(),
